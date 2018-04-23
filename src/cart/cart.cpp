@@ -1,4 +1,4 @@
-#include "include/cart.h"
+#include "cart.h"
 
 void model::Cart::UpdateCart(std::string ean, unsigned short amount) {
   /* TODO: Everything */
