@@ -3,10 +3,12 @@
 
 int main() {
   model::Cart *cart = new model::Cart();
-  cart->UpdateCart("", 0); 
+  /* A lot of watermelon. */
+  cart->UpdateCart("Watermelon", 512); 
   for (model::cartmap::const_iterator it = cart->ItBegin(); it != cart->ItEnd();
        it++)
     {
-      printf("Contains shit like: %s\n", (it->first).c_str());
+      printf("Contains: %s\n", (it->first).c_str());
     }
+  delete cart;
 }
