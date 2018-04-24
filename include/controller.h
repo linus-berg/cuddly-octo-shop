@@ -6,7 +6,7 @@
 class Controller {
 private:
   model::Sale *sale_;
-  db::Database *database_ = new db::Database("test");
+  db::Database *database_ = new db::Database("shop.db");
 public:
   void StartSale();
   void FinalizeSale(double paid_amount);

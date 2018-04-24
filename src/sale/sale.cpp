@@ -7,7 +7,8 @@ void model::Sale::AddItem(const db::ItemDTO *item) {
 
 void model::Sale::Finalize(double paid_amount) {
   this->PrintCart();
-  printf("Change: $%.2f\n", paid_amount - this->cart_->GetTotal());
+  printf("Paid: %10s$%.2f\n", "", paid_amount);
+  printf("Change: %8s$%.2f\n", "", paid_amount - this->cart_->GetTotal());
   printf("-----------------------------------\n");
 }
 
@@ -22,6 +23,7 @@ void model::Sale::PrintCart() {
                                        (it->second).first->price_);
   }
   printf("-----------------------------------\n");
-  printf("Total: $%.2f\n", this->cart_->GetTotal()); 
+  printf("Total: %9s$%.2f\n", "", this->cart_->GetTotal()); 
+  printf("Discount: %9s, %.2f%\n", 1 ? "Yes" : "No", 0.05*100);
   printf("-----------------------------------\n");
 }

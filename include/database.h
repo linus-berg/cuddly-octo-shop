@@ -22,16 +22,14 @@ public:
 
 class Database {
 private:
-  const std::string database_;
   sqlite3 *db_;
   sqlite3_stmt *stmt_;
-  const char *sql_ = "SELECT * FROM items WHERE ean=?1";
-  
-  public:
+public:
   const ItemDTO* GetItem(std::string ean);
-  Database(std::string database) : database_(database) {
-    sqlite3_open("iv_shop", &db_);
-    sqlite3_prepare_v2(db_, sql_, -1, &stmt_, NULL);
+  Database(const char *database) {
+    /* Dangerous, no error checking. Fuck it. */
+    sqlite3_open_v2(database, &db_, SQLITE_OPEN_READONLY, NULL);
+    sqlite3_prepare_v2(db_, "SELECT * FROM items WHERE ean=?1", -1, &stmt_, NULL);
   }
 };
 

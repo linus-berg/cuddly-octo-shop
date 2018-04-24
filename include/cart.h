@@ -17,6 +17,11 @@ public:
   double GetTotal();
   cartmap::const_iterator ItBegin();
   cartmap::const_iterator ItEnd();
+  ~Cart() {
+    for (cartmap::iterator it = cart_map_.begin(); it != cart_map_.end(); it++) {
+      delete it->second.first;
+    }
+  }
 };
 }
 #endif

@@ -16,7 +16,7 @@ void Controller::ScanItem(std::string ean) {
   if (item != NULL) {
     this->sale_->AddItem(item);
   } else {
-    printf("Invalid item: %s\n", ean.c_str());
+    printf("Invalid EAN-code: %s\n", ean.c_str());
   }
 }
 

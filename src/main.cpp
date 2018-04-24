@@ -8,8 +8,8 @@ int main() {
   ctrl->ScanItem("0000000001");
   ctrl->ScanItem("0000000002");
   ctrl->ScanItem("0000000001");
-  ctrl->ScanItem("0005");
-  ctrl->PrintCart();
+  ctrl->ScanItem("Fucking duck.");
+//  ctrl->PrintCart();
   ctrl->FinalizeSale(20);
   delete ctrl;
   /* A lot of watermelon. */

@@ -1,7 +1,6 @@
 #include "cart.h"
 
 void model::Cart::UpdateCart(const db::ItemDTO *item, unsigned short amount) {
-  /* TODO: Everything */
   this->total_ += item->price_ * amount;
   if (this->cart_map_.find(item->ean_) != this->cart_map_.end()) {
     /* Quick dirty fix for the compiler not finding insert_or_assing??? */

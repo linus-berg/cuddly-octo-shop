@@ -15,6 +15,7 @@ const db::ItemDTO* db::Database::GetItem(std::string ean) {
                                        sqlite3_column_text(this->stmt_, 2))),
                            sqlite3_column_double(this->stmt_, 3));
   }
+  /* Caches old SQL execution plan */
   sqlite3_clear_bindings(this->stmt_); 
   sqlite3_reset(this->stmt_);
   return data;
