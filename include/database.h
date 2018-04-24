@@ -7,19 +7,19 @@
 namespace db {
 
 class ItemDTO {
-private:
-  std::string ean;
-  std::string name;
-  std::string descr;
-  double price;
 public:
+  const std::string ean;
+  const std::string name;
+  const std::string descr;
+  const double price;
+
   ItemDTO(std::string ean, std::string name, std::string descr, double price) :
           ean(ean), name(name), descr(descr), price(price) {}
 };
 
 class Database {
 public:
-  ItemDTO GetItem();
+  ItemDTO* GetItem(std::string ean);
 };
 
 }

@@ -4,15 +4,16 @@
 #include <string>
 #include <stdio.h>
 #include <iostream>
+#include "database.h"
 
 namespace model {
-typedef std::unordered_map<std::string, int> cartmap;
+typedef std::unordered_map<db::ItemDTO*, int> cartmap;
 class Cart { 
 private:
   int total_;
-  cartmap cart_;
+  cartmap cart_map_;
 public:
-  void UpdateCart(std::string ean, unsigned short amount);
+  void UpdateCart(db::ItemDTO *item, unsigned short amount);
   cartmap::const_iterator ItBegin();
   cartmap::const_iterator ItEnd();
 };

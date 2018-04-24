@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include "cart.h"
+#include "controller.h"
 
 int main() {
-  model::Cart *cart = new model::Cart();
+  Controller *ctrl = new Controller();
+  ctrl->StartSale();
+  ctrl->ScanItem("0001");
+  ctrl->ScanItem("0002");
+  ctrl->ScanItem("0003");
+  ctrl->PrintCart();
+
   /* A lot of watermelon. */
-  cart->UpdateCart("Watermelon", 512); 
-  for (model::cartmap::const_iterator it = cart->ItBegin(); it != cart->ItEnd();
-       it++)
-    {
-      printf("Contains: %s\n", (it->first).c_str());
-    }
-  delete cart;
 }

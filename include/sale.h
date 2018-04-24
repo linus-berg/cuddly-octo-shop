@@ -8,17 +8,18 @@ namespace model {
 class Sale {
 private:
   bool discount = false;
-  Cart cart_;
+  Cart *cart_;
 
 public:
-  void AddItem(std::string item);
+  void AddItem(db::ItemDTO *item);
   bool SetDiscount();
+  void PrintCart();
   /* Finalize */
   Sale() {
-    cart_ = new Cart();
+    this->cart_ = new Cart();
   }
   ~Sale() {
-    delete cart_;
+    delete this->cart_;
   }
 };
 
