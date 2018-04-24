@@ -6,10 +6,10 @@
 class Controller {
 private:
   model::Sale *sale_;
-  db::Database *database_;
+  db::Database *database_ = new db::Database("test");
 public:
   void StartSale();
-  void FinalizeSale();
+  void FinalizeSale(double paid_amount);
   void ScanItem(std::string ean);
   void PrintCart();
 

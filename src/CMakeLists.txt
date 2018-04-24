@@ -1,5 +1,5 @@
 include_directories(${Shop_SOURCE_DIR}/include)
-
+set(CMAKE_BUILD_TYPE Debug)
 # Libs
 add_subdirectory(cart)
 add_subdirectory(database)

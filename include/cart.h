@@ -7,13 +7,14 @@
 #include "database.h"
 
 namespace model {
-typedef std::unordered_map<db::ItemDTO*, int> cartmap;
+typedef std::unordered_map<std::string, std::pair<const db::ItemDTO*, int>> cartmap;
 class Cart { 
 private:
-  int total_;
+  double total_ = 0;
   cartmap cart_map_;
 public:
-  void UpdateCart(db::ItemDTO *item, unsigned short amount);
+  void UpdateCart(const db::ItemDTO *item, unsigned short amount);
+  double GetTotal();
   cartmap::const_iterator ItBegin();
   cartmap::const_iterator ItEnd();
 };

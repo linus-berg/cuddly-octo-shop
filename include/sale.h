@@ -11,7 +11,8 @@ private:
   Cart *cart_;
 
 public:
-  void AddItem(db::ItemDTO *item);
+  void AddItem(const db::ItemDTO *item);
+  void Finalize(double paid_amount);
   bool SetDiscount();
   void PrintCart();
   /* Finalize */

@@ -5,10 +5,12 @@
 int main() {
   Controller *ctrl = new Controller();
   ctrl->StartSale();
-  ctrl->ScanItem("0001");
-  ctrl->ScanItem("0002");
-  ctrl->ScanItem("0003");
+  ctrl->ScanItem("0000000001");
+  ctrl->ScanItem("0000000002");
+  ctrl->ScanItem("0000000001");
+  ctrl->ScanItem("0005");
   ctrl->PrintCart();
-
+  ctrl->FinalizeSale(20);
+  delete ctrl;
   /* A lot of watermelon. */
 }
