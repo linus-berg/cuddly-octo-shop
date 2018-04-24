@@ -20,17 +20,20 @@ public:
           ean_(ean), name_(name), descr_(descr), price_(price) {}
 };
 
+class CustomerDTO {
+public:
+  const std::string name_;
+};
+
+
 class Database {
 private:
   sqlite3 *db_;
   sqlite3_stmt *stmt_;
 public:
   const ItemDTO* GetItem(std::string ean);
-  Database(const char *database) {
-    /* Dangerous, no error checking. Fuck it. */
-    sqlite3_open_v2(database, &db_, SQLITE_OPEN_READONLY, NULL);
-    sqlite3_prepare_v2(db_, "SELECT * FROM items WHERE ean=?1", -1, &stmt_, NULL);
-  }
+  Database(const char *database);
+  ~Database();
 };
 
 }

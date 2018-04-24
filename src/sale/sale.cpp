@@ -19,8 +19,8 @@ void model::Sale::PrintCart() {
   printf("%-14s ¦ %10s ¦ %5s\n", "Item", "Quantity", "Price");
   printf("-----------------------------------\n");
   for (model::cartmap::const_iterator it = cart_->ItBegin(); it != cart_->ItEnd(); it++) {
-    printf("%-14s ¦ %9dx ¦ %-10.2f\n", (it->second).first->name_.c_str(), (it->second).second,
-                                       (it->second).first->price_);
+    printf("%-14s ¦ %9dx ¦ %-10.2f\n", it->second.first->name_.c_str(),
+                                       it->second.second, it->second.first->price_);
   }
   printf("-----------------------------------\n");
   printf("Total: %9s$%.2f\n", "", this->cart_->GetTotal()); 

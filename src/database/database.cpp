@@ -20,3 +20,13 @@ const db::ItemDTO* db::Database::GetItem(std::string ean) {
   sqlite3_reset(this->stmt_);
   return data;
 }
+
+db::Database::Database(const char *database) {
+  /* Dangerous, no error checking. Fuck it. */
+  sqlite3_open_v2(database, &db_, SQLITE_OPEN_READONLY, NULL);
+  sqlite3_prepare_v2(db_, "SELECT * FROM items WHERE ean=?1", -1, &stmt_, NULL);
+}
+
+db::Database::~Database() {
+  sqlite3_close(db);
+}
