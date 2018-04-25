@@ -7,13 +7,15 @@ namespace model {
 
 class Sale {
 private:
-  bool discount = false;
+  std::string customer_;
+  char discount_ = 0;
   Cart *cart_;
-
+  /* Hardcoded worker id */
+  const int worker_ = 1;
 public:
   void AddItem(const db::ItemDTO *item);
-  void Finalize(double paid_amount);
-  bool SetDiscount();
+  void Finalize(db::Database *db, double paid_amount);
+  void SetDiscount(std::string customer, char discount);
   void PrintCart();
   /* Finalize */
   Sale() {

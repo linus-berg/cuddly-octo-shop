@@ -8,7 +8,7 @@ void Controller::StartSale() {
 
 void Controller::FinalizeSale(double paid_amount) {
   /* Pay shit */
-  this->sale_->Finalize(paid_amount); 
+  this->sale_->Finalize(database_, paid_amount);
 }
 
 void Controller::ScanItem(std::string ean) {
@@ -17,6 +17,17 @@ void Controller::ScanItem(std::string ean) {
     this->sale_->AddItem(item);
   } else {
     printf("Invalid EAN-code: %s\n", ean.c_str());
+  }
+}
+
+void Controller::ReqDiscount(std::string id) {
+  const db::CustomerDTO *cust = this->database_->GetCustomer(id);
+  if (cust != NULL && cust->discount_ != 0) {
+    printf("Customer has: %d discount.\n", cust->discount_);
+    this->sale_->SetDiscount(cust->name_, cust->discount_);
+    delete cust;
+  } else {
+    printf("No discount available\n");
   }
 }
 

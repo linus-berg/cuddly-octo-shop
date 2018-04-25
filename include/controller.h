@@ -12,7 +12,7 @@ public:
   void FinalizeSale(double paid_amount);
   void ScanItem(std::string ean);
   void PrintCart();
-
+  void ReqDiscount(std::string id);
   ~Controller() {
     delete this->sale_;
     delete this->database_;
