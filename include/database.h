@@ -4,7 +4,7 @@
 #include <sqlite3.h> 
 #include <string>
 #include <unordered_map>
-#include <iostream>
+
 namespace db {
 
 class ItemDTO {
@@ -13,11 +13,13 @@ public:
   const std::string name_;
   const std::string descr_;
   const double price_;
+  const int stock_;
 
   ItemDTO(const ItemDTO *item) : ean_(item->ean_), name_(item->name_),
-                                 descr_(item->descr_), price_(item->price_) {}
-  ItemDTO(std::string ean, std::string name, std::string descr, double price) :
-          ean_(ean), name_(name), descr_(descr), price_(price) {}
+                                 descr_(item->descr_), price_(item->price_),
+                                 stock_(item->stock_) {}
+  ItemDTO(std::string ean, std::string name, std::string descr, double price, int stock) :
+          ean_(ean), name_(name), descr_(descr), price_(price), stock_(stock) {}
 };
 
 class CustomerDTO {
@@ -49,10 +51,12 @@ private:
   sqlite3_stmt *stmt_;
   sqlite3_stmt *stmt_c_;
   sqlite3_stmt *stmt_s_;
+  sqlite3_stmt *stmt_i_;
 public:
   const ItemDTO* GetItem(std::string ean);
   const CustomerDTO* GetCustomer(std::string id);
-  void  StoreSale(SaleDTO *sale);
+  void  LogSale(SaleDTO *sale);
+  void  SetStock(const ItemDTO *item, int sold_amount);
   Database(const char *database);
   ~Database();
 };

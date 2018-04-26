@@ -13,8 +13,10 @@ const db::ItemDTO* db::Database::GetItem(std::string ean) {
                                        sqlite3_column_text(this->stmt_, 1))),
                            std::string(reinterpret_cast<const char*>(
                                        sqlite3_column_text(this->stmt_, 2))),
-                           sqlite3_column_double(this->stmt_, 3));
+                           sqlite3_column_double(this->stmt_, 3),
+                           sqlite3_column_int(this->stmt_, 4));
   }
+  rc = sqlite3_column_int(this->stmt_, 4);
   /* Caches old SQL execution plan */
   sqlite3_clear_bindings(this->stmt_); 
   sqlite3_reset(this->stmt_);
@@ -37,7 +39,16 @@ const db::CustomerDTO* db::Database::GetCustomer(std::string id) {
   return data;
 }
 
-void db::Database::StoreSale(db::SaleDTO *sale) {
+void db::Database::SetStock(const db::ItemDTO *item, int sold_amount) {
+  int rc = 0;
+  rc = sqlite3_bind_int(this->stmt_i_,    1, item->stock_ - sold_amount);
+  rc = sqlite3_bind_text(this->stmt_i_,   2, item->ean_.c_str(), -1, SQLITE_STATIC);
+  rc = sqlite3_step(this->stmt_i_);
+  sqlite3_clear_bindings(this->stmt_i_); 
+  sqlite3_reset(this->stmt_i_);
+}
+
+void db::Database::LogSale(db::SaleDTO *sale) {
   int rc = 0;
   rc = sqlite3_bind_int(this->stmt_s_,    1, sale->worker_);
   rc = sqlite3_bind_text(this->stmt_s_,   2, sale->customer_.c_str(), -1, SQLITE_STATIC);
@@ -72,6 +83,7 @@ db::Database::Database(const char *database) {
                             ?4,\
                             ?5,\
                             ?6)", -1, &stmt_s_, NULL);
+  sqlite3_prepare_v2(db_, "UPDATE items SET stock=?1 WHERE ean=?2", -1, &stmt_i_, NULL);
 }
 
 db::Database::~Database() {

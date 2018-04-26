@@ -1,9 +1,9 @@
 #ifndef _CART_H
 #define _CART_H
+#define DEBUG_CART 0 
 #include <unordered_map>
 #include <string>
 #include <stdio.h>
-#include <iostream>
 #include "database.h"
 
 namespace model {

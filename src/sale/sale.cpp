@@ -17,8 +17,9 @@ void model::Sale::Finalize(db::Database *db, double paid_amount) {
   for (model::cartmap::const_iterator it = cart_->ItBegin(); it != cart_->ItEnd(); it++) {
     items += it->second.first->ean_ + (next(it) != cart_->ItEnd() ? "," : "");
     quantity += std::to_string(it->second.second) + (next(it) != cart_->ItEnd() ? "," : "");
+    db->SetStock(it->second.first, it->second.second);
   }
-  db->StoreSale(new db::SaleDTO(this->worker_, this->customer_, this->cart_->GetTotal(),
+  db->LogSale(new db::SaleDTO(this->worker_, this->customer_, this->cart_->GetTotal(),
                                 this->discount_, items, quantity));
   this->PrintCart();
   printf("Paid: %10s$%.2f\n", "", paid_amount);

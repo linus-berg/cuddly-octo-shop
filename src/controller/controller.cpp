@@ -6,12 +6,12 @@ void Controller::StartSale() {
   printf("|SALE STARTED|\n");
 }
 
-void Controller::FinalizeSale(double paid_amount) {
+void Controller::EndSale(double paid_amount) {
   /* Pay shit */
   this->sale_->Finalize(database_, paid_amount);
 }
 
-void Controller::ScanItem(std::string ean) {
+void Controller::OnScannedItem(std::string ean) {
   const db::ItemDTO *item = this->database_->GetItem(ean);
   if (item != NULL) {
     this->sale_->AddItem(item);
@@ -20,7 +20,7 @@ void Controller::ScanItem(std::string ean) {
   }
 }
 
-void Controller::ReqDiscount(std::string id) {
+void Controller::OnReqDiscount(std::string id) {
   const db::CustomerDTO *cust = this->database_->GetCustomer(id);
   if (cust != NULL && cust->discount_ != 0) {
     printf("Customer has: %d discount.\n", cust->discount_);
