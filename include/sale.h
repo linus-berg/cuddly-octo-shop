@@ -13,9 +13,9 @@ private:
   /* Hardcoded worker id */
   const int worker_ = 1;
 public:
-  void AddItem(const db::ItemDTO *item);
+  bool AddItem(const db::ItemDTO *item);
   void Finalize(db::Database *db, double paid_amount);
-  void SetDiscount(std::string customer, char discount);
+  bool SetDiscount(std::string customer, char discount);
   void PrintCart();
   /* Finalize */
   Sale() {

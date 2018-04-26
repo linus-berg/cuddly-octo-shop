@@ -52,11 +52,12 @@ private:
   sqlite3_stmt *stmt_c_;
   sqlite3_stmt *stmt_s_;
   sqlite3_stmt *stmt_i_;
+  int rc_ = 0;
 public:
   const ItemDTO* GetItem(std::string ean);
   const CustomerDTO* GetCustomer(std::string id);
-  void  LogSale(SaleDTO *sale);
-  void  SetStock(const ItemDTO *item, int sold_amount);
+  int LogSale(SaleDTO *sale);
+  int SetStock(const ItemDTO *item, int sold_amount);
   Database(const char *database);
   ~Database();
 };

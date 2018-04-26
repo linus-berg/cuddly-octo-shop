@@ -2,13 +2,14 @@
 #include "database.h"
 #include <iostream>
 
-void model::Sale::AddItem(const db::ItemDTO *item) {
-  this->cart_->UpdateCart(item, 1);
+bool model::Sale::AddItem(const db::ItemDTO *item) {
+  return this->cart_->UpdateCart(item, 1);
 }
 
-void model::Sale::SetDiscount(std::string customer, char discount) {
+bool model::Sale::SetDiscount(std::string customer, char discount) {
   this->customer_ = customer;
   this->discount_ = discount;
+  return this->discount_;
 }
 
 void model::Sale::Finalize(db::Database *db, double paid_amount) {

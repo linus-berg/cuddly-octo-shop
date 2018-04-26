@@ -13,7 +13,7 @@ private:
   double total_ = 0;
   cartmap cart_map_;
 public:
-  void UpdateCart(const db::ItemDTO *item, unsigned short amount);
+  bool UpdateCart(const db::ItemDTO *item, unsigned short amount);
   double GetTotal();
   cartmap::const_iterator ItBegin();
   cartmap::const_iterator ItEnd();
