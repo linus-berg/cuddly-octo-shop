@@ -22,6 +22,13 @@ target_link_libraries(dbTest gtest gtest_main)
 # Extra linking for the project.
 target_link_libraries(dbTest Controller Database Sale Cart)
 
+add_executable(cartTest cart.cpp)
+# Standard linking to gtest stuff.
+target_link_libraries(cartTest gtest gtest_main)
+# Extra linking for the project.
+target_link_libraries(cartTest Controller Database Sale Cart)
+
 add_test(NAME DB-Test COMMAND dbTest)
+add_test(NAME Cart-Test COMMAND cartTest)
 add_test(NAME Sale-Test COMMAND saleTest)
 add_test(NAME Controller-Test COMMAND ctrlTest)
