@@ -21,7 +21,7 @@ void model::Sale::Finalize(db::Database *db, double paid_amount) {
     db->SetStock(it->second.first, it->second.second);
   }
   db->LogSale(new db::SaleDTO(this->worker_, this->customer_, this->cart_->GetTotal(),
-                                this->discount_, items, quantity));
+                              this->discount_, items, quantity));
   this->PrintCart();
   printf("Paid: %10s$%.2f\n", "", paid_amount);
   printf("Change: %8s$%.2f\n", "", paid_amount - this->cart_->GetTotal());

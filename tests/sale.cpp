@@ -1,19 +1,18 @@
 #include "gtest/gtest.h"
-#include "controller.h"
+#include "sale.h"
+#include "database.h"
 
-class ctrlTest : public ::testing::Test {
+class saleTest : public ::testing::Test {
 protected:
 	// You can remove any or all of the following functions if its body
 	// is empty.
 
-	ctrlTest() {
+	saleTest() {
 		// You can do set-up work for each test here.
-	  p.StartSale(); // we have access to p, declared in the fixture
 	}
 
-	virtual ~ctrlTest() {
+	virtual ~saleTest() {
 		// You can do clean-up work that doesn't throw exceptions here.
-	  p.EndSale(100000.0000);
   }
 
 	// If the constructor and destructor are not enough for setting up
@@ -30,14 +29,16 @@ protected:
 	}
 
 	// Objects declared here can be used by all tests in the test case for Project1.
-	Controller p;
+	model::Sale p;
+  db::Database *database_ = new db::Database("./shop.db");
 };
 
-TEST_F(ctrlTest, StartSale) {
-  EXPECT_TRUE(p.OnScannedItem("0000000001"));
+TEST_F(saleTest, AddItem) {
+  EXPECT_TRUE(p.AddItem(new db::ItemDTO("Sale Test", "Descr", "mmh", 10, 10)));
 }
 
-TEST_F(ctrlTest, DiscountReq) {
-  EXPECT_TRUE(p.OnReqDiscount("1234567890"));
-  EXPECT_FALSE(p.OnReqDiscount("1234567891"));
+TEST_F(saleTest, SetDiscount) {
+  EXPECT_TRUE(p.SetDiscount("12345", 1));
+  EXPECT_FALSE(p.SetDiscount("1234567891", 0));
 }
+

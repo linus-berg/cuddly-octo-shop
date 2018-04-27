@@ -1,19 +1,17 @@
 #include "gtest/gtest.h"
-#include "controller.h"
+#include "database.h"
 
-class ctrlTest : public ::testing::Test {
+class dbTest : public ::testing::Test {
 protected:
 	// You can remove any or all of the following functions if its body
 	// is empty.
 
-	ctrlTest() {
+	dbTest() {
 		// You can do set-up work for each test here.
-	  p.StartSale(); // we have access to p, declared in the fixture
 	}
 
-	virtual ~ctrlTest() {
+	virtual ~dbTest() {
 		// You can do clean-up work that doesn't throw exceptions here.
-	  p.EndSale(100000.0000);
   }
 
 	// If the constructor and destructor are not enough for setting up
@@ -30,14 +28,21 @@ protected:
 	}
 
 	// Objects declared here can be used by all tests in the test case for Project1.
-	Controller p;
+  db::Database *database_ = new db::Database("./shop.db");
 };
 
-TEST_F(ctrlTest, StartSale) {
-  EXPECT_TRUE(p.OnScannedItem("0000000001"));
+TEST_F(dbTest, GetItem) {
+  EXPECT_EQ(database_->GetItem("0000000001")->ean_, "0000000001");
 }
 
-TEST_F(ctrlTest, DiscountReq) {
-  EXPECT_TRUE(p.OnReqDiscount("1234567890"));
-  EXPECT_FALSE(p.OnReqDiscount("1234567891"));
+TEST_F(dbTest, GetCustomer) {
+  EXPECT_EQ(database_->GetCustomer("1234567890")->discount_, 60);
+}
+
+TEST_F(dbTest, SetStock) {
+  EXPECT_EQ(database_->SetStock(new db::ItemDTO("0000000001", "", "", 1, 20), 1), 101);
+}
+
+TEST_F(dbTest, LogSale) {
+  EXPECT_EQ(database_->LogSale(new db::SaleDTO(1, "2", 1, 1, "1", "1")), 101);
 }
