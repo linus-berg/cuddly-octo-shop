@@ -15,6 +15,8 @@ bool model::Sale::SetDiscount(std::string customer, char discount) {
 void model::Sale::Finalize(db::Database *db, double paid_amount) {
   std::string items = "";
   std::string quantity = "";
+  this->paid_ = paid_amount;
+
   for (model::cartmap::const_iterator it = cart_->ItBegin(); it != cart_->ItEnd(); it++) {
     items += it->second.first->ean_ + (next(it) != cart_->ItEnd() ? "," : "");
     quantity += std::to_string(it->second.second) + (next(it) != cart_->ItEnd() ? "," : "");
@@ -22,28 +24,9 @@ void model::Sale::Finalize(db::Database *db, double paid_amount) {
   }
   db->LogSale(new db::SaleDTO(this->worker_, this->customer_, this->cart_->GetTotal(),
                               this->discount_, items, quantity));
-  this->PrintCart();
-  printf("Paid: %10s$%.2f\n", "", paid_amount);
-  printf("Change: %8s$%.2f\n", "", paid_amount - this->cart_->GetTotal());
-  printf("-----------------------------------\n");
 }
 
-void model::Sale::PrintCart() {
-  printf("-----------------------------------\n");
-  printf("|%18s%16s\n", "CART", "|");
-  printf("-----------------------------------\n");
-  printf("%-14s ¦ %10s ¦ %5s\n", "Item", "Quantity", "Price");
-  printf("-----------------------------------\n");
-  for (model::cartmap::const_iterator it = cart_->ItBegin(); it != cart_->ItEnd(); it++) {
-    printf("%-14s ¦ %9dx ¦ %-10.2f\n", it->second.first->name_.c_str(),
-                                       it->second.second, it->second.first->price_);
-  }
-  printf("-----------------------------------\n");
-  if (this->discount_) {
-    printf("Discount: %20s, %d%\n", "Yes", this->discount_);
-  }
-  printf("Total%s: %9s$%.2f\n", this->discount_ ? " With Discount" : "", "",
-         this->discount_ ? this->cart_->GetTotal() * (1 - this->discount_/100.0) :
-                           this->cart_->GetTotal());
-  printf("-----------------------------------\n");
+db::DisplayDTO model::Sale::GetDisplayInfo() {
+  return db::DisplayDTO(cart_->ItBegin(), cart_->ItEnd(), this->cart_->GetTotal(),
+                        this->paid_, this->discount_);
 }

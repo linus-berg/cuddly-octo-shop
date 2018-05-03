@@ -34,6 +34,6 @@ bool Controller::OnReqDiscount(std::string id) {
   return ret;
 }
 
-void Controller::PrintCart() {
-  this->sale_->PrintCart();
+db::DisplayDTO Controller::GetDisplayInfo() {
+  return this->sale_->GetDisplayInfo();
 }
