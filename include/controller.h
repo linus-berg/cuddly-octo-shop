@@ -53,7 +53,7 @@ public:
   * @return True if customer has discount.
   * @date 03/05/2018
   */
-  bool OnReqDiscount(std::string id);
+  char OnReqDiscount(std::string id);
   
   /**
   * On controller destruction, obliterate the rest of the program, Boom.
