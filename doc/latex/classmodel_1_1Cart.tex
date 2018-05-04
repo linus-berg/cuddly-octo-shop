@@ -1,0 +1,106 @@
+\hypertarget{classmodel_1_1Cart}{}\section{model\+:\+:Cart Class Reference}
+\label{classmodel_1_1Cart}\index{model\+::\+Cart@{model\+::\+Cart}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classmodel_1_1Cart_a34a29b08e5d925fdb9ad9c4b4685c7c3}{Update\+Cart}} (const \mbox{\hyperlink{classdb_1_1ItemDTO}{db\+::\+Item\+D\+TO}} $\ast$item, unsigned short amount)
+\item 
+double \mbox{\hyperlink{classmodel_1_1Cart_ad214fba3ad7b762c89e0bf5336d8a312}{Get\+Total}} ()
+\item 
+cartmap\+::const\+\_\+iterator \mbox{\hyperlink{classmodel_1_1Cart_a2483c346d68425ff3d1e8ea5f50959e3}{It\+Begin}} ()
+\item 
+cartmap\+::const\+\_\+iterator \mbox{\hyperlink{classmodel_1_1Cart_a83deca31686c6f0a0880e97d71ea27cc}{It\+End}} ()
+\item 
+\mbox{\hyperlink{classmodel_1_1Cart_a9ef0bd14d307ae19c2fc265bbea9da61}{$\sim$\+Cart}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmodel_1_1Cart_a9ef0bd14d307ae19c2fc265bbea9da61}\label{classmodel_1_1Cart_a9ef0bd14d307ae19c2fc265bbea9da61}} 
+\index{model\+::\+Cart@{model\+::\+Cart}!````~Cart@{$\sim$\+Cart}}
+\index{````~Cart@{$\sim$\+Cart}!model\+::\+Cart@{model\+::\+Cart}}
+\subsubsection{\texorpdfstring{$\sim$\+Cart()}{~Cart()}}
+{\footnotesize\ttfamily model\+::\+Cart\+::$\sim$\+Cart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+On cart destruction, clean up all memory reserved by the pointers in the cart map. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodel_1_1Cart_ad214fba3ad7b762c89e0bf5336d8a312}\label{classmodel_1_1Cart_ad214fba3ad7b762c89e0bf5336d8a312}} 
+\index{model\+::\+Cart@{model\+::\+Cart}!Get\+Total@{Get\+Total}}
+\index{Get\+Total@{Get\+Total}!model\+::\+Cart@{model\+::\+Cart}}
+\subsubsection{\texorpdfstring{Get\+Total()}{GetTotal()}}
+{\footnotesize\ttfamily double model\+::\+Cart\+::\+Get\+Total (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get total of cart. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+\begin{DoxyReturn}{Returns}
+Total amount. 
+\end{DoxyReturn}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+\mbox{\Hypertarget{classmodel_1_1Cart_a2483c346d68425ff3d1e8ea5f50959e3}\label{classmodel_1_1Cart_a2483c346d68425ff3d1e8ea5f50959e3}} 
+\index{model\+::\+Cart@{model\+::\+Cart}!It\+Begin@{It\+Begin}}
+\index{It\+Begin@{It\+Begin}!model\+::\+Cart@{model\+::\+Cart}}
+\subsubsection{\texorpdfstring{It\+Begin()}{ItBegin()}}
+{\footnotesize\ttfamily model\+::cartmap\+::const\+\_\+iterator model\+::\+Cart\+::\+It\+Begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get iterator beginning from cart hashmap. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+\begin{DoxyReturn}{Returns}
+Constant iterator to the beginning of the cart hashmap. 
+\end{DoxyReturn}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+\mbox{\Hypertarget{classmodel_1_1Cart_a83deca31686c6f0a0880e97d71ea27cc}\label{classmodel_1_1Cart_a83deca31686c6f0a0880e97d71ea27cc}} 
+\index{model\+::\+Cart@{model\+::\+Cart}!It\+End@{It\+End}}
+\index{It\+End@{It\+End}!model\+::\+Cart@{model\+::\+Cart}}
+\subsubsection{\texorpdfstring{It\+End()}{ItEnd()}}
+{\footnotesize\ttfamily model\+::cartmap\+::const\+\_\+iterator model\+::\+Cart\+::\+It\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get iterator ending from cart hashmap. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+\begin{DoxyReturn}{Returns}
+Constant iterator to the end of the cart hashmap. 
+\end{DoxyReturn}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+\mbox{\Hypertarget{classmodel_1_1Cart_a34a29b08e5d925fdb9ad9c4b4685c7c3}\label{classmodel_1_1Cart_a34a29b08e5d925fdb9ad9c4b4685c7c3}} 
+\index{model\+::\+Cart@{model\+::\+Cart}!Update\+Cart@{Update\+Cart}}
+\index{Update\+Cart@{Update\+Cart}!model\+::\+Cart@{model\+::\+Cart}}
+\subsubsection{\texorpdfstring{Update\+Cart()}{UpdateCart()}}
+{\footnotesize\ttfamily bool model\+::\+Cart\+::\+Update\+Cart (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdb_1_1ItemDTO}{db\+::\+Item\+D\+TO}} $\ast$}]{item,  }\item[{unsigned short}]{amount }\end{DoxyParamCaption})}
+
+This method updates the cart with given Item\+D\+TO and adds amount to the quantity. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$item} & Item to add. \\
+\hline
+{\em amount} & Amount to increase quantity by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if item was added succesfully. 
+\end{DoxyReturn}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{cart_8h}{cart.\+h}}\item 
+src/cart/cart.\+cpp\end{DoxyCompactItemize}

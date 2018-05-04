@@ -1,0 +1,122 @@
+\hypertarget{classController}{}\section{Controller Class Reference}
+\label{classController}\index{Controller@{Controller}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classController_a0a9b1a04843990d5692b4af126b21efd}{Start\+Sale}} ()
+\item 
+void \mbox{\hyperlink{classController_a533d123d57b0aa61ee7e5e78dbd2ef27}{End\+Sale}} (double paid\+\_\+amount)
+\item 
+bool \mbox{\hyperlink{classController_a89f3bf717eacccece51eb0e18a4727e1}{On\+Scanned\+Item}} (std\+::string ean)
+\item 
+\mbox{\hyperlink{classdb_1_1DisplayDTO}{db\+::\+Display\+D\+TO}} \mbox{\hyperlink{classController_aed4cd2b11a4d29b7efa272b806fa0813}{Get\+Display\+Info}} ()
+\item 
+char \mbox{\hyperlink{classController_a72bf65a5fee35f140e4890d5dd3fd839}{On\+Req\+Discount}} (std\+::string id)
+\item 
+\mbox{\hyperlink{classController_a0ab87934c4f7a266cfdb86e0f36bc1b5}{$\sim$\+Controller}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classController_a0ab87934c4f7a266cfdb86e0f36bc1b5}\label{classController_a0ab87934c4f7a266cfdb86e0f36bc1b5}} 
+\index{Controller@{Controller}!````~Controller@{$\sim$\+Controller}}
+\index{````~Controller@{$\sim$\+Controller}!Controller@{Controller}}
+\subsubsection{\texorpdfstring{$\sim$\+Controller()}{~Controller()}}
+{\footnotesize\ttfamily Controller\+::$\sim$\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+On controller destruction, obliterate the rest of the program, Boom. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classController_a533d123d57b0aa61ee7e5e78dbd2ef27}\label{classController_a533d123d57b0aa61ee7e5e78dbd2ef27}} 
+\index{Controller@{Controller}!End\+Sale@{End\+Sale}}
+\index{End\+Sale@{End\+Sale}!Controller@{Controller}}
+\subsubsection{\texorpdfstring{End\+Sale()}{EndSale()}}
+{\footnotesize\ttfamily void Controller\+::\+End\+Sale (\begin{DoxyParamCaption}\item[{double}]{paid\+\_\+amount }\end{DoxyParamCaption})}
+
+Finalize the sale by entering the amount the customer paid. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em paid\+\_\+amount} & Important\+: Always assumed to be $>$= total of the sale. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+\mbox{\Hypertarget{classController_aed4cd2b11a4d29b7efa272b806fa0813}\label{classController_aed4cd2b11a4d29b7efa272b806fa0813}} 
+\index{Controller@{Controller}!Get\+Display\+Info@{Get\+Display\+Info}}
+\index{Get\+Display\+Info@{Get\+Display\+Info}!Controller@{Controller}}
+\subsubsection{\texorpdfstring{Get\+Display\+Info()}{GetDisplayInfo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdb_1_1DisplayDTO}{db\+::\+Display\+D\+TO}} Controller\+::\+Get\+Display\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Print cart content. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+\mbox{\Hypertarget{classController_a72bf65a5fee35f140e4890d5dd3fd839}\label{classController_a72bf65a5fee35f140e4890d5dd3fd839}} 
+\index{Controller@{Controller}!On\+Req\+Discount@{On\+Req\+Discount}}
+\index{On\+Req\+Discount@{On\+Req\+Discount}!Controller@{Controller}}
+\subsubsection{\texorpdfstring{On\+Req\+Discount()}{OnReqDiscount()}}
+{\footnotesize\ttfamily char Controller\+::\+On\+Req\+Discount (\begin{DoxyParamCaption}\item[{std\+::string}]{id }\end{DoxyParamCaption})}
+
+If the customer requests a discount, do stuff based on the customer id. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The customer id. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if customer has discount. 
+\end{DoxyReturn}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+\mbox{\Hypertarget{classController_a89f3bf717eacccece51eb0e18a4727e1}\label{classController_a89f3bf717eacccece51eb0e18a4727e1}} 
+\index{Controller@{Controller}!On\+Scanned\+Item@{On\+Scanned\+Item}}
+\index{On\+Scanned\+Item@{On\+Scanned\+Item}!Controller@{Controller}}
+\subsubsection{\texorpdfstring{On\+Scanned\+Item()}{OnScannedItem()}}
+{\footnotesize\ttfamily bool Controller\+::\+On\+Scanned\+Item (\begin{DoxyParamCaption}\item[{std\+::string}]{ean }\end{DoxyParamCaption})}
+
+On scanning an item this function is called by the theoretical \textquotesingle{}view\textquotesingle{}. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em ean} & E\+AN code of the item that was scanned, error checking occurs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if item was scanned and added succesfully. 
+\end{DoxyReturn}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+\mbox{\Hypertarget{classController_a0a9b1a04843990d5692b4af126b21efd}\label{classController_a0a9b1a04843990d5692b4af126b21efd}} 
+\index{Controller@{Controller}!Start\+Sale@{Start\+Sale}}
+\index{Start\+Sale@{Start\+Sale}!Controller@{Controller}}
+\subsubsection{\texorpdfstring{Start\+Sale()}{StartSale()}}
+{\footnotesize\ttfamily void Controller\+::\+Start\+Sale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Start a sale by creating a new Sale object. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{controller_8h}{controller.\+h}}\item 
+src/controller/controller.\+cpp\end{DoxyCompactItemize}

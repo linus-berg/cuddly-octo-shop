@@ -15,19 +15,20 @@ public:
       Well I kind of wanted to implement streams.
       Honestly, what the fuck is this?
     */
-    
-    std::cout << termcolor::underline << "Item" << std::setw(12) << "|"; 
+    std::cout << termcolor::cyan << termcolor::underline;
+    std::cout << "Item" << std::setw(12) << "|"; 
     std::cout << std::setw(11) << "Quantity" << std::setw(2) << "|";
     std::cout << std::setw(6) << "Price" << std::endl;
     std::cout << termcolor::reset; 
     std::cout << std::left;
     for (model::cartmap::const_iterator it = info.begin_; it != info.end_; ++it) {
-      std::cout << std::left << std::setw(15) << it->second.first->name_  << "|";
+      std::cout << std::left << std::setw(15) << it->second.first->name_;
+      std::cout << termcolor::cyan << "|";
       std::cout << termcolor::magenta;
       std::cout << std::right << std::setw(10) << it->second.second << "x ";
       std::cout << termcolor::reset;
-      std::cout << "|";
-      std::cout << std::setw(6) << it->second.first->price_ << "|" << std::endl;
+      std::cout << termcolor::cyan << "|" << termcolor::reset;
+      std::cout << std::setw(6) << it->second.first->price_ << std::endl;
     }
     std::cout << std::setfill('-') << std::setw(36) << "" << std::endl; 
     std::cout << std::setfill(' ');
@@ -102,16 +103,16 @@ public:
     ctrl->StartSale();
     printf(" ____________\n");
     printf("|SALE STARTED|\n");
-    this->Scan(ctrl, "0000000001");
+    this->Scan(ctrl, "0000000003");
     this->PrintSale(ctrl->GetDisplayInfo());
     this->Scan(ctrl, "0000000002");
     this->PrintSale(ctrl->GetDisplayInfo());
-    this->Scan(ctrl, "0000000001");
+    this->Scan(ctrl, "0000000003");
     this->PrintSale(ctrl->GetDisplayInfo());
     this->Scan(ctrl, "Duck.");
     char discount = ctrl->OnReqDiscount("1234567890"); 
     if (discount) {
-      printf("Customer has: %d discount.\n", discount);
+      printf("Customer has: %d%% discount.\n", discount);
     } else {
       printf("No discount available\n");
     }

@@ -1,0 +1,126 @@
+\hypertarget{classdb_1_1Database}{}\section{db\+:\+:Database Class Reference}
+\label{classdb_1_1Database}\index{db\+::\+Database@{db\+::\+Database}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classdb_1_1ItemDTO}{Item\+D\+TO}} $\ast$ \mbox{\hyperlink{classdb_1_1Database_a1fb85ca95813c5b08fa337ee876dcc77}{Get\+Item}} (std\+::string ean)
+\item 
+const \mbox{\hyperlink{classdb_1_1CustomerDTO}{Customer\+D\+TO}} $\ast$ \mbox{\hyperlink{classdb_1_1Database_a50871011cdeb0a80894f08549240c3fa}{Get\+Customer}} (std\+::string id)
+\item 
+int \mbox{\hyperlink{classdb_1_1Database_ac2aef162b74c917acdaf11794422c415}{Log\+Sale}} (\mbox{\hyperlink{classdb_1_1SaleDTO}{Sale\+D\+TO}} $\ast$sale)
+\item 
+int \mbox{\hyperlink{classdb_1_1Database_a777611636e84a82dc2bbd2be10491bb7}{Set\+Stock}} (const \mbox{\hyperlink{classdb_1_1ItemDTO}{Item\+D\+TO}} $\ast$item, int sold\+\_\+amount)
+\item 
+\mbox{\hyperlink{classdb_1_1Database_a39fcdd02bf06ce617c4d03581bed22ba}{Database}} (const char $\ast$database)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classdb_1_1Database_a39fcdd02bf06ce617c4d03581bed22ba}\label{classdb_1_1Database_a39fcdd02bf06ce617c4d03581bed22ba}} 
+\index{db\+::\+Database@{db\+::\+Database}!Database@{Database}}
+\index{Database@{Database}!db\+::\+Database@{db\+::\+Database}}
+\subsubsection{\texorpdfstring{Database()}{Database()}}
+{\footnotesize\ttfamily db\+::\+Database\+::\+Database (\begin{DoxyParamCaption}\item[{const char $\ast$}]{database }\end{DoxyParamCaption})}
+
+Open sqlite database file. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$database} & \mbox{\hyperlink{classdb_1_1Database}{Database}} file to be used (ususally \textquotesingle{}./shop.db\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classdb_1_1Database_a50871011cdeb0a80894f08549240c3fa}\label{classdb_1_1Database_a50871011cdeb0a80894f08549240c3fa}} 
+\index{db\+::\+Database@{db\+::\+Database}!Get\+Customer@{Get\+Customer}}
+\index{Get\+Customer@{Get\+Customer}!db\+::\+Database@{db\+::\+Database}}
+\subsubsection{\texorpdfstring{Get\+Customer()}{GetCustomer()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classdb_1_1CustomerDTO}{db\+::\+Customer\+D\+TO}} $\ast$ db\+::\+Database\+::\+Get\+Customer (\begin{DoxyParamCaption}\item[{std\+::string}]{id }\end{DoxyParamCaption})}
+
+Get customer from database by id. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Customer id. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a \mbox{\hyperlink{classdb_1_1CustomerDTO}{Customer\+D\+TO}} object. 
+\end{DoxyReturn}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+\mbox{\Hypertarget{classdb_1_1Database_a1fb85ca95813c5b08fa337ee876dcc77}\label{classdb_1_1Database_a1fb85ca95813c5b08fa337ee876dcc77}} 
+\index{db\+::\+Database@{db\+::\+Database}!Get\+Item@{Get\+Item}}
+\index{Get\+Item@{Get\+Item}!db\+::\+Database@{db\+::\+Database}}
+\subsubsection{\texorpdfstring{Get\+Item()}{GetItem()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classdb_1_1ItemDTO}{db\+::\+Item\+D\+TO}} $\ast$ db\+::\+Database\+::\+Get\+Item (\begin{DoxyParamCaption}\item[{std\+::string}]{ean }\end{DoxyParamCaption})}
+
+Get item from database by E\+AN code. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em ean} & Item E\+AN. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to an \mbox{\hyperlink{classdb_1_1ItemDTO}{Item\+D\+TO}} object. 
+\end{DoxyReturn}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+\mbox{\Hypertarget{classdb_1_1Database_ac2aef162b74c917acdaf11794422c415}\label{classdb_1_1Database_ac2aef162b74c917acdaf11794422c415}} 
+\index{db\+::\+Database@{db\+::\+Database}!Log\+Sale@{Log\+Sale}}
+\index{Log\+Sale@{Log\+Sale}!db\+::\+Database@{db\+::\+Database}}
+\subsubsection{\texorpdfstring{Log\+Sale()}{LogSale()}}
+{\footnotesize\ttfamily int db\+::\+Database\+::\+Log\+Sale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdb_1_1SaleDTO}{db\+::\+Sale\+D\+TO}} $\ast$}]{sale }\end{DoxyParamCaption})}
+
+Log \mbox{\hyperlink{classdb_1_1SaleDTO}{Sale\+D\+TO}} in the database. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$sale} & \mbox{\hyperlink{classdb_1_1SaleDTO}{Sale\+D\+TO}} to log. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sqlite return code. 
+\end{DoxyReturn}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+\mbox{\Hypertarget{classdb_1_1Database_a777611636e84a82dc2bbd2be10491bb7}\label{classdb_1_1Database_a777611636e84a82dc2bbd2be10491bb7}} 
+\index{db\+::\+Database@{db\+::\+Database}!Set\+Stock@{Set\+Stock}}
+\index{Set\+Stock@{Set\+Stock}!db\+::\+Database@{db\+::\+Database}}
+\subsubsection{\texorpdfstring{Set\+Stock()}{SetStock()}}
+{\footnotesize\ttfamily int db\+::\+Database\+::\+Set\+Stock (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdb_1_1ItemDTO}{Item\+D\+TO}} $\ast$}]{item,  }\item[{int}]{sold\+\_\+amount }\end{DoxyParamCaption})}
+
+Set stock of item in database. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$item} & Item whos stock should be modified. \\
+\hline
+{\em sold\+\_\+amount} & Amount to reduce by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sqlite return code. 
+\end{DoxyReturn}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{database_8h}{database.\+h}}\item 
+src/database/database.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,40 @@
+\hypertarget{database_8h}{}\section{include/database.h File Reference}
+\label{database_8h}\index{include/database.\+h@{include/database.\+h}}
+
+
+Database handling code, specifically for Sqlite3.  
+
+
+{\ttfamily \#include $<$sqlite3.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdb_1_1ItemDTO}{db\+::\+Item\+D\+TO}}
+\item 
+class \mbox{\hyperlink{classdb_1_1DisplayDTO}{db\+::\+Display\+D\+TO}}
+\item 
+class \mbox{\hyperlink{classdb_1_1CustomerDTO}{db\+::\+Customer\+D\+TO}}
+\item 
+class \mbox{\hyperlink{classdb_1_1SaleDTO}{db\+::\+Sale\+D\+TO}}
+\item 
+class \mbox{\hyperlink{classdb_1_1Database}{db\+::\+Database}}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{database_8h_aafdf6dc7149ee0bdc598797a68bc06ff}\label{database_8h_aafdf6dc7149ee0bdc598797a68bc06ff}} 
+typedef std\+::unordered\+\_\+map$<$ std\+::string, std\+::pair$<$ const \mbox{\hyperlink{classdb_1_1ItemDTO}{db\+::\+Item\+D\+TO}} $\ast$, int $>$ $>$ {\bfseries db\+::cartmap}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Database handling code, specifically for Sqlite3. 
+
+\begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}

@@ -1,0 +1,81 @@
+\hypertarget{classmodel_1_1Sale}{}\section{model\+:\+:Sale Class Reference}
+\label{classmodel_1_1Sale}\index{model\+::\+Sale@{model\+::\+Sale}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classmodel_1_1Sale_a5c6b5c51018129dc8ddc9527781be80f}{Add\+Item}} (const \mbox{\hyperlink{classdb_1_1ItemDTO}{db\+::\+Item\+D\+TO}} $\ast$item)
+\item 
+void \mbox{\hyperlink{classmodel_1_1Sale_a092d73ac058910164043c5d2a4c27bf6}{Finalize}} (\mbox{\hyperlink{classdb_1_1Database}{db\+::\+Database}} $\ast$db, double paid\+\_\+amount)
+\item 
+bool \mbox{\hyperlink{classmodel_1_1Sale_adf3d95e3f8ec65f7c7c707e982dd3169}{Set\+Discount}} (std\+::string customer, char discount)
+\item 
+\mbox{\Hypertarget{classmodel_1_1Sale_a0ddbf2f94470ae590130e8c60e8f32b7}\label{classmodel_1_1Sale_a0ddbf2f94470ae590130e8c60e8f32b7}} 
+\mbox{\hyperlink{classdb_1_1DisplayDTO}{db\+::\+Display\+D\+TO}} {\bfseries Get\+Display\+Info} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodel_1_1Sale_a5c6b5c51018129dc8ddc9527781be80f}\label{classmodel_1_1Sale_a5c6b5c51018129dc8ddc9527781be80f}} 
+\index{model\+::\+Sale@{model\+::\+Sale}!Add\+Item@{Add\+Item}}
+\index{Add\+Item@{Add\+Item}!model\+::\+Sale@{model\+::\+Sale}}
+\subsubsection{\texorpdfstring{Add\+Item()}{AddItem()}}
+{\footnotesize\ttfamily bool model\+::\+Sale\+::\+Add\+Item (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdb_1_1ItemDTO}{db\+::\+Item\+D\+TO}} $\ast$}]{item }\end{DoxyParamCaption})}
+
+Add item to cart\+\_\+. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$item} & Item pointer to Item\+D\+TO to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if item succesfully added to cart\+\_\+. 
+\end{DoxyReturn}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+\mbox{\Hypertarget{classmodel_1_1Sale_a092d73ac058910164043c5d2a4c27bf6}\label{classmodel_1_1Sale_a092d73ac058910164043c5d2a4c27bf6}} 
+\index{model\+::\+Sale@{model\+::\+Sale}!Finalize@{Finalize}}
+\index{Finalize@{Finalize}!model\+::\+Sale@{model\+::\+Sale}}
+\subsubsection{\texorpdfstring{Finalize()}{Finalize()}}
+{\footnotesize\ttfamily void model\+::\+Sale\+::\+Finalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdb_1_1Database}{db\+::\+Database}} $\ast$}]{db,  }\item[{double}]{paid\+\_\+amount }\end{DoxyParamCaption})}
+
+Finalize the sale. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$db} & Database to modify with finalized sale info. \\
+\hline
+{\em paid\+\_\+amount} & Amount paid. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+\mbox{\Hypertarget{classmodel_1_1Sale_adf3d95e3f8ec65f7c7c707e982dd3169}\label{classmodel_1_1Sale_adf3d95e3f8ec65f7c7c707e982dd3169}} 
+\index{model\+::\+Sale@{model\+::\+Sale}!Set\+Discount@{Set\+Discount}}
+\index{Set\+Discount@{Set\+Discount}!model\+::\+Sale@{model\+::\+Sale}}
+\subsubsection{\texorpdfstring{Set\+Discount()}{SetDiscount()}}
+{\footnotesize\ttfamily bool model\+::\+Sale\+::\+Set\+Discount (\begin{DoxyParamCaption}\item[{std\+::string}]{customer,  }\item[{char}]{discount }\end{DoxyParamCaption})}
+
+Set the discount based on the customer data. \begin{DoxyAuthor}{Author}
+Linus Gunnarsson 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & Customer ID. \\
+\hline
+{\em discount} & Discount percentage (0-\/100). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyDate}{Date}
+03/05/2018 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{sale_8h}{sale.\+h}}\item 
+src/sale/sale.\+cpp\end{DoxyCompactItemize}
