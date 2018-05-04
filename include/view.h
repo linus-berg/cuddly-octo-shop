@@ -108,7 +108,7 @@ public:
     this->PrintSale(ctrl->GetDisplayInfo());
     this->Scan(ctrl, "0000000001");
     this->PrintSale(ctrl->GetDisplayInfo());
-    this->Scan(ctrl, "Fucking duck.");
+    this->Scan(ctrl, "Duck.");
     char discount = ctrl->OnReqDiscount("1234567890"); 
     if (discount) {
       printf("Customer has: %d discount.\n", discount);
