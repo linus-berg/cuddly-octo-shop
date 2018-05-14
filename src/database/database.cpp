@@ -1,4 +1,5 @@
 #include "database.h"
+#include "exceptions.h"
 
 const db::ItemDTO* db::Database::GetItem(std::string ean) {
   db::ItemDTO *data = NULL;
@@ -18,7 +19,11 @@ const db::ItemDTO* db::Database::GetItem(std::string ean) {
   /* Caches old SQL execution plan */
   sqlite3_clear_bindings(this->stmt_); 
   sqlite3_reset(this->stmt_);
-  return data;
+  if (data) {
+    return data;
+  } else {
+    throw error::database_item_not_found(ean); 
+  }
 }
 
 const db::CustomerDTO* db::Database::GetCustomer(std::string id) {
@@ -62,7 +67,9 @@ int db::Database::LogSale(db::SaleDTO *sale) {
 
 db::Database::Database(const char *database) {
   /* Dangerous, no error checking. Fuck it. */
-  sqlite3_open_v2(database, &db_, SQLITE_OPEN_READWRITE, NULL);
+  if (sqlite3_open_v2(database, &db_, SQLITE_OPEN_READWRITE, NULL) != SQLITE_OK) {
+    throw error::database_not_established();
+  }
   sqlite3_prepare_v2(db_, "SELECT * FROM items WHERE ean=?1", -1, &stmt_, NULL);
   sqlite3_prepare_v2(db_, "SELECT * FROM cust WHERE id=?1", -1, &stmt_c_, NULL);
   sqlite3_prepare_v2(db_, "INSERT INTO \

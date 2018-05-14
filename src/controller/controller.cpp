@@ -1,4 +1,5 @@
 #include "controller.h"
+#include "exceptions.h"
 
 void Controller::StartSale() {
   this->sale_ = new model::Sale();
@@ -10,12 +11,14 @@ void Controller::EndSale(double paid_amount) {
 }
 
 bool Controller::OnScannedItem(std::string ean) {
-  const db::ItemDTO *item = this->database_->GetItem(ean);
-  if (item != NULL) {
-    return this->sale_->AddItem(item);
-  } else {
-    return false;
+  try {
+    /* GetItem throws database_item_not_found if no item is found */
+    const db::ItemDTO *item = this->database_->GetItem(ean);
+  } catch (std::exception &e) {
+    /* Throw new error to view. */
+    throw error::database_item_not_found(e.what());
   }
+  return this->sale_->AddItem(item);
 }
 
 char Controller::OnReqDiscount(std::string id) {
