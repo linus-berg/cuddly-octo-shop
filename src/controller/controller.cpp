@@ -6,18 +6,17 @@ void Controller::StartSale() {
 }
 
 void Controller::EndSale(double paid_amount) {
-  /* Pay shit */
+  if (!this->testing_) {
+    this->rev_.AddRevenue(this->sale_->GetDiscount() ?
+                          this->sale_->GetTotal() * 1.3 * (1 - this->sale_->GetDiscount()/100.0) :
+                          this->sale_->GetTotal() * 1.3);
+  }
   this->sale_->Finalize(database_, paid_amount);
 }
 
 bool Controller::OnScannedItem(std::string ean) {
-  try {
-    /* GetItem throws database_item_not_found if no item is found */
-    const db::ItemDTO *item = this->database_->GetItem(ean);
-  } catch (std::exception &e) {
-    /* Throw new error to view. */
-    throw error::database_item_not_found(e.what());
-  }
+  /* GetItem throws database_item_not_found if no item is found */
+  const db::ItemDTO *item = this->database_->GetItem(ean);
   return this->sale_->AddItem(item);
 }
 
@@ -31,6 +30,7 @@ char Controller::OnReqDiscount(std::string id) {
   }
   return ret;
 }
+
 
 db::DisplayDTO Controller::GetDisplayInfo() {
   return this->sale_->GetDisplayInfo();

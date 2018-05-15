@@ -7,8 +7,10 @@
 #ifndef _SALE_H
 #define _SALE_H
 #include <string>
+#include <vector>
 #include "cart.h"
 #include "database.h"
+#include "display.h"
 
 namespace model {
 
@@ -29,6 +31,9 @@ public:
   * @date 03/05/2018
   */
   bool AddItem(const db::ItemDTO *item);
+  
+  double GetTotal();
+  int GetDiscount();
   
   /**
   * Finalize the sale.
@@ -57,6 +62,16 @@ public:
   }
 };
 
+class Revenue {
+private:
+  double total_rev_;
+  std::vector<Display*> observers_; 
+public:
+  void AddRevenue(double sale_rev);
+  void AddObserver(Display *observer);
+  void Broadcast();
+  ~Revenue();
+};
 }
 
 #endif

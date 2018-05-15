@@ -13,6 +13,8 @@
 class Controller {
 private:
   model::Sale *sale_ = NULL;
+  model::Revenue rev_;
+  bool testing_;
   db::Database *database_ = new db::Database("./shop.db");
 public:
   /**
@@ -54,7 +56,11 @@ public:
   * @date 03/05/2018
   */
   char OnReqDiscount(std::string id);
-  
+  Controller(bool test = false) : testing_(test) {
+    if (!(this->testing_)) {  
+      this->rev_.AddObserver(new TotalRevenueView());
+    }
+  }
   /**
   * On controller destruction, obliterate the rest of the program, Boom.
   * @author Linus Gunnarsson 

@@ -6,6 +6,7 @@
 #include <iostream>
 #include <iomanip>
 #include "termcolour.hpp"
+#include "exceptions.h"
 
 namespace view {
 class View {
@@ -59,7 +60,7 @@ public:
       std::cout << std::setw(22) << "Change:";
       std::cout << std::right;
       std::cout << termcolor::green << std::setw(14);
-      std::cout << info.paid_ - (info.total_ * 1.3) << std::endl;
+      std::cout << info.paid_ - (info.discount_ ? info.total_ * 1.3 * (1 - info.discount_/100.0) : info.total_ * 1.3) << std::endl;
       std::cout << termcolor::reset;
       std::cout << std::setfill('-') << std::setw(36) << "" << std::endl; 
       std::cout << std::setfill(' ');
