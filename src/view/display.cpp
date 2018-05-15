@@ -2,7 +2,7 @@
 #include "stdio.h"
 
 void Display::PrintRevenue(double new_rev) {
-  printf("Data? %f\n", new_rev); 
+  printf("Revenue: %f\n", new_rev); 
 }
 
 void TotalRevenueView::SaleEnded(double new_rev) {

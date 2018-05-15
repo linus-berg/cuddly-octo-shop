@@ -66,10 +66,10 @@ class Revenue {
 private:
   double total_rev_;
   std::vector<Display*> observers_; 
+  void Broadcast();
 public:
   void AddRevenue(double sale_rev);
   void AddObserver(Display *observer);
-  void Broadcast();
   ~Revenue();
 };
 }
