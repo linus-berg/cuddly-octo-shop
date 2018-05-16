@@ -4,6 +4,10 @@
 const db::ItemDTO* db::Database::GetItem(std::string ean) {
   db::ItemDTO *data = NULL;
   sqlite3_bind_text(this->stmt_, 1, ean.c_str(), -1, SQLITE_STATIC);
+  /*
+     rc_ is modified even if an exception is thrown, this is the last code 
+     SQLite returned. It has useful information even if an exception is thrown.
+  */
   this->rc_ = sqlite3_step(this->stmt_);
   if (this->rc_ == SQLITE_ROW) {
     /* This sure as shit ain't pretty. */
@@ -66,7 +70,6 @@ int db::Database::LogSale(db::SaleDTO *sale) {
 }
 
 db::Database::Database(const char *database) {
-  /* Dangerous, no error checking. Fuck it. */
   if (sqlite3_open_v2(database, &db_, SQLITE_OPEN_READWRITE, NULL) != SQLITE_OK) {
     throw error::database_not_established();
   }

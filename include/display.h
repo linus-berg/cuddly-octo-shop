@@ -2,7 +2,7 @@
 #define _DISPLAY_H
 class Display {
 protected:
-  void PrintRevenue(double new_rev);
+  void PrintRevenue(double revenue);
 public:
   virtual void SaleEnded(double new_rev) = 0;
 };

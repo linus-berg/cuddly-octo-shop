@@ -116,6 +116,7 @@ public:
   * @author Linus Gunnarsson 
   * @param ean Item EAN.
   * @return Pointer to an ItemDTO object.
+  * @exception database_item_not_found Thrown if no item is found.
   * @date 03/05/2018
   */
   const ItemDTO* GetItem(std::string ean);
@@ -152,6 +153,7 @@ public:
   * Open sqlite database file.
   * @author Linus Gunnarsson 
   * @param *database Database file to be used (ususally './shop.db'). 
+  * @exception database_not_established Thrown if database file is not opened properly.
   * @date 03/05/2018
   */
   Database(const char *database);
