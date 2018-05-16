@@ -1,5 +1,6 @@
 var classController =
 [
+    [ "Controller", "classController.html#a62380a8fe78d6e8d5bee5a4d57fb99c3", null ],
     [ "~Controller", "classController.html#a0ab87934c4f7a266cfdb86e0f36bc1b5", null ],
     [ "EndSale", "classController.html#a533d123d57b0aa61ee7e5e78dbd2ef27", null ],
     [ "GetDisplayInfo", "classController.html#aed4cd2b11a4d29b7efa272b806fa0813", null ],
