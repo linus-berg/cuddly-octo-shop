@@ -72,7 +72,7 @@ public:
     try {
       ctrl->OnScannedItem(ean);
     } catch (std::exception &e) {
-      std::cout << e.what() << std::endl; 
+      std::cout << "[USERLOG]: " << e.what() << std::endl; 
     }
   }
 

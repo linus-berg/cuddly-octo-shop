@@ -7,7 +7,7 @@ int main() {
     /* If an exception is not caught, severe error occured */
     view::View display; 
   } catch (std::exception &e) {
-    std::cout << "Fatal Exception occured:" << std::endl << e.what() << std::endl;
+    std::cout << "[DEVLOG]: Fatal Exception occured:" << std::endl << e.what() << std::endl;
     return EXIT_FAILURE;
   }
   return EXIT_SUCCESS;
