@@ -1,2 +1,4 @@
 language: cpp
+before_install:
+  - sudo apt-get -qq update
 script: cmake . && make && make install
